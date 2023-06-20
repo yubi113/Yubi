@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+<title> 20220258 유비 - 웹클라이언트 과제</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://yubi113.github.io/Yubi/">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+.box{
+  background-color:white;
+  padding: 7px 10px 7px 10px;
+  border-radius: 10px;
+  color:black;}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>20221173<br>유비</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button"> 들어가기전에 </a> 
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button"> 자기소개 </a>
+  <a href="#aboutJJA" onclick="w3_close()" class="w3-bar-item w3-button"> 내 인생에 가장 많은 영향을 준 책 </a> 
+  <a href="#aboutJJAM" onclick="w3_close()" class="w3-bar-item w3-button"> 울라프에 대해서 </a> 
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Kim Gi Ryeong </span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens --> 
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Photo grid -->
+  <div class="w3-row">
+    <div class="w3-third">
+      <img src="방증환.jpg" style="width:100%" onclick="onClick(this)" alt="올라프 아가들의 모임 ! !">
+      <img src="구름2.jpg" style="width:100%" onclick="onClick(this)" alt="밖을 좋아하는 구름이">
+      <img src="구름이랑 나.jpg" style="width:100%" onclick="onClick(this)" alt="나들이 나와서 신난 구름이">
+    </div>
+
+    <div class="w3-third">
+      <img src="바다.jpg" style="width: 100%" onclick="onClick(this)" alt=" 너무 예쁜 을왕리 바다">
+      <img src="증명사진.jpg" style="width:100%" onclick="onClick(this)" alt="고2때 마지막으로 찍은 증명사진">
+      <img src="한강 기령.jpg" style="width:100%" onclick="onClick(this)" alt=" 흔들리면서 찍는것이 컨셉 , ,">
+    </div>
+    
+    <div class="w3-third">
+      <img src="울라프.png" style="width:100%" onclick="onClick(this)" alt="항상 같이다니는 울라프인형">
+      <img src="구름1.jpg" style="width:100%" onclick="onClick(this)" alt="하품하는 강아지 구름 ~">
+      <img src="올해목표.jpg" style="width:100%" onclick="onClick(this)" alt="올해 목표이자 다짐">
+
+      
+    </div>
+  </div>
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h4><b> 자기소개 </b></h4>
+    <img src="증명사진.jpg" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4>KIM GI RYEONG</h4>
+      <div class="color">
+      <p>
+        안녕하세요
+        현재 청운대학교 컴퓨터공학과에 재학중인 22학번 유비입니다.<br>
+        저는 1학년 1학기 때 반수를 시도하고 이번 학기에 다시 복학하게되었습니다. <br>
+        다시 학교에 복학했을 땐 한 학기를 못다닌 공백을 채울 생각에 정말 많이 떨렸었습니다.<br><br>
+        이런 떨림을 안고 복학한 저는 지금 늦은만큼 더욱 노력하고있습니다.<br>
+        하지만 요즘 저는 저 자신이 원하는 목표가 무엇인지에 대해 찾지못하고 있습니다.<br>
+        &nbsp;&nbsp;&nbsp;->&nbsp; 그래서 올해 저의 목표는 내가 스스로 할 수 있는 것을 찾아 그것을 해야하는 것으로 바꾸는 것입니다.<br><br>
+        무작정 하는 노력과 행동은 아무런 의미가 없다는 것을 반수를 통해 깨달은 자신이기에 이번엔 시간 낭비없이 확실하게 찾고싶습니다.<br>
+      </p>
+    </div>
+      <hr class="w3-opacity">
+      <h4 class="w3-padding-16">내 삶의 베터리 </h4>
+      <p class="w3-wide"> 독서 </p>
+      <p class="box">저는 어릴적부터 독서활동을 좋아했습니다. 그 덕에 제 방에는 제가 좋아하는 책들로 만든 나만의 작은 도서관이 있습니다. </p>
+      <p class="w3-wide"> 밤 산책 </p>
+      <p class="box">밤에 하는 산책은 선선한 바람과 고요함, 잔잔함 등 제가 좋아하는 분위기를 모두 모아둔 제가 하루에 한번씩 꼭하는 활동입니다.</p>
+      <p class="w3-wide"> 요리하기</p>
+      <p class="box"> 중학교때 까지 요리사의 꿈을 꿨던 저는 집에서 혼자 유튜브나 TV프로그램에 나오는 요리를 따라 만드는 것을 좋아합니다.</p>
+      <hr class="w3-opacity">
+    </div>
+  </div>
+
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="aboutJJA">
+    <h4><b> 구름이에 대해서</b></h4>
+    <img src="아기구름.jpg" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4> GURM </h4>
+      <hr class="w3-opacity">
+      <p class="w3-wide">
+        - 2023기준 3살 여자 강아지입니다 <br>
+        - 기분에 따라 행동이 달라집니다. <br>
+        &nbsp;&nbsp;->&nbsp; 그래도 진짜 귀엽습니다, ,<br>
+        - 사료보다는 간식을 좋아합니다. <br>
+        - 산책하는것을 제일 좋아하고 애교가 많습니다<br>
+        - 기분이 좋지않더라도 구름이를 보면 행복해집니다 ! </p>
+      <hr class="w3-opacity">
+    </div>
+  </div>
+
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="aboutJJAM">
+    <h4><b> 겨울왕국 울라프에대해서 </b></h4>
+    <img src="울라프.jpeg" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4> OLAF </h4>
+      <hr class="w3-opacity">
+      <p class="w3-wide">
+        - 울라프는 겨울왕국에 나왔던 눈사람입니다 <br>
+        - 울라프를 좋아하는 이유는 순수함때문입니다 <br>
+        &nbsp;&nbsp;->&nbsp; 자신을 만들어주었던 주인공들이 위기에 놓여져있으면 몸을 날려서라도 도와주었습니다.<br>
+        &nbsp;&nbsp;->&nbsp; 여름이 되어 자신이 녹아서 없어질 상황이었는데도 끝까지 순수하게 웃음을 주었고 순수했던 그 모습때문에 좋아하게 되었습니다<br>
+      
+      <hr class="w3-opacity">
+    </div>
+  </div>
+
+  <!-- Contact section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:600px">
+      <h4 class="w3-center"><b>CONTACT</b></h4>
+      <p><b>mail:</b> kgr9708@naver.com </p>
+      <p><b>tel:</b> 010 - 9177- 7684 </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <div class="w3-third">
+      <h3><b>웹클라이언트<br>프로그래밍</b></h3>
+        <p><b>
+          학번: 20221173 <br>
+          학과: 컴퓨터공학과 <br>
+          담당 교수: 박종진 교수님<br>
+        </b></p>      
+      </div>
+    
+      <div class="w3-third">
+        <h3>!Bye Bye!</h3>
+        <ul class="w3-ul">
+          <li class="w3-padding-16 w3-hover-black">
+            <img src="강지.jpg" class="w3-left w3-margin-right" style="width:50px">
+            <span class="w3-large">작별인사 하는 강아지</span><br>
+            <span> 그럼 안녕히계세요 ! </span>
+          </li>
+         
+        </ul>
+      </div>
+
+      <div class="w3-third">
+        <h3> 마지막으로 </h3>
+        <p>
+          <span class="w3-tag w3-black w3-margin-bottom"> 자기소개 </span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"> 구름 </span>
+          <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom"> 울라프 </span>
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24">20221173 김기령 </div>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+
+
+</body>
+</html>
